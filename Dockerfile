@@ -1,9 +1,6 @@
-FROM web-app:latest
-
-RUN apt-get update && apt-get install apache2 -y
-
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install apache2 php libapache2-mod-php -y
 ADD . /var/www/html
-
-ENTRYPOINT apachectl -D FOREGROUND
-
 EXPOSE 80
+ENTRYPOINT apachectl -D FOREGROUND
